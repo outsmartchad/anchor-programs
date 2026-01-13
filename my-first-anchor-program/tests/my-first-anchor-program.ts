@@ -49,7 +49,7 @@ describe("my-first-anchor-program", () => {
       program.programId
     );
 
-    const depositAmount = new anchor.BN(30_000_000); // 0.03 SOL
+    const depositAmount = new anchor.BN(300_000_000); // 0.3 SOL
 
     // Deposit to vault
     const tx = await program.methods

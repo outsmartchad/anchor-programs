@@ -14,8 +14,12 @@ pub fn handler(ctx: Context<WithdrawAction>, amount: u64) -> Result<()> {
     let rent = anchor_lang::solana_program::rent::Rent::get()?;
     let min_rent = rent.minimum_balance(Vault::INIT_SPACE + Vault::DISCRIMINATOR.len());
     
+    // Get account infos for lamport manipulation
+    let vault_info = ctx.accounts.vault.to_account_info();
+    let signer_info = ctx.accounts.signer.to_account_info();
+    
     // Get current vault balance
-    let vault_balance = ctx.accounts.vault.to_account_info().lamports();
+    let vault_balance = vault_info.lamports();
     
     // Ensure we don't withdraw below rent-exempt minimum
     require!(
@@ -26,8 +30,8 @@ pub fn handler(ctx: Context<WithdrawAction>, amount: u64) -> Result<()> {
     // Transfer lamports from vault back to signer
     // We can't use system program's transfer on an account with data,
     // so we manually modify lamports
-    **ctx.accounts.vault.to_account_info().try_borrow_mut_lamports()? -= amount;
-    **ctx.accounts.signer.to_account_info().try_borrow_mut_lamports()? += amount;
+    **vault_info.try_borrow_mut_lamports()? -= amount;
+    **signer_info.try_borrow_mut_lamports()? += amount;
     
     // Update vault metadata
     ctx.accounts.vault.total_withdrawals = ctx.accounts.vault.total_withdrawals

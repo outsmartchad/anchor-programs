@@ -91,3 +91,4 @@ anchor idl parse -f programs/my-first-anchor-program/src/lib.rs -o target/idl/my
 3. Write tests in `tests/my-first-anchor-program.ts`
 4. Deploy to devnet: `anchor deploy`
 5. Continue with Blueshift course lessons
+# Updated: Tue Jan 13 08:28:53 AM EST 2026

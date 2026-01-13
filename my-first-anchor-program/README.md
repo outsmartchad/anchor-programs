@@ -9,56 +9,87 @@ my-first-anchor-program/
 ├── programs/
 │   └── my-first-anchor-program/
 │       └── src/
-│           └── lib.rs          # Main program code
+│           ├── lib.rs              # Main program entry point, declares modules
+│           ├── state.rs            # Vault account struct definition
+│           ├── errors.rs           # Custom error types (VaultError)
+│           ├── contexts.rs         # Account validation structs (InitializeVault, VaultAction, etc.)
+│           └── instructions/       # Instruction handlers (modular design)
+│               ├── mod.rs          # Module declarations
+│               ├── initialize.rs   # Initialize vault PDA
+│               ├── deposit.rs      # Deposit lamports to vault
+│               ├── withdraw.rs     # Withdraw lamports from vault
+│               └── read_vault.rs   # Read vault using LazyAccount (efficient)
 ├── tests/
 │   └── my-first-anchor-program.ts  # Test file
-├── Anchor.toml                  # Anchor configuration
-├── Cargo.toml                   # Rust workspace config
-└── package.json                 # Node.js dependencies
+├── Anchor.toml                     # Anchor configuration
+├── Cargo.toml                      # Rust workspace config
+├── package.json                    # Node.js dependencies
+└── Dockerfile                      # Docker environment for consistent builds
 ```
 
-## Current Program
+## Program Overview
 
-The program includes a simple vault example with:
-- `deposit`: Adds lamports to a PDA vault
-- `withdraw`: Removes lamports from the vault
+This is a **modular vault program** that demonstrates:
+- **PDA (Program Derived Address)** management
+- **Account initialization** with rent-exempt minimums
+- **Lamport transfers** (deposits and withdrawals)
+- **LazyAccount** feature for efficient read-only access
+- **Modular code organization** (separate files for state, errors, contexts, instructions)
 
-This matches the Blueshift "Anchor for Dummies" course examples.
+### Instructions
+
+1. **`initialize`**: Creates a new vault PDA account owned by the signer
+2. **`deposit`**: Adds lamports to the vault (increases `total_deposits`)
+3. **`withdraw`**: Removes lamports from the vault (increases `total_withdrawals`)
+   - Ensures vault remains rent-exempt
+   - Uses manual lamport manipulation (can't use SystemProgram::transfer on accounts with data)
+4. **`read_vault`**: Efficiently reads vault data using `LazyAccount` (read-only, stack-efficient)
+
+### Program ID
+
+```
+GqSMeguuRK2vT1auHzQrda6ojKFwAxw2GoNso1myd39i
+```
+
+### Vault Account Structure
+
+```rust
+pub struct Vault {
+    pub owner: Pubkey,           // 32 bytes
+    pub total_deposits: u64,     // 8 bytes
+    pub total_withdrawals: u64,  // 8 bytes
+}
+// Total: 8 (discriminator) + 32 + 8 + 8 = 56 bytes
+```
 
 ## Setup Instructions
 
-### Prerequisites (Already Installed)
-- ✅ Anchor CLI 0.30.0
-- ✅ Solana CLI 2.1.18
-- ✅ Rust 1.86.0
-- ✅ Node.js v18.20.8
-- ✅ Yarn
+### Development Environment
 
-### Build Issue (GLIBCXX)
+This project uses **Docker** to provide a consistent build environment that avoids system-specific library compatibility issues (e.g., GLIBCXX version mismatches).
 
-**Current Issue**: The Solana build tools require `GLIBCXX_3.4.30` but your system has up to `GLIBCXX_3.4.29`.
+### Quick Start
 
-**Solutions**:
-
-1. **Update to a newer OS** (Recommended for production):
-   - Upgrade to CentOS 9 / RHEL 9
-   - Or use Ubuntu 22.04+
-
-2. **Use Docker** (Quick workaround):
+1. **Build the Docker image**:
    ```bash
-   docker run -it -v $(pwd):/workspace solanalabs/solana:latest bash
+   docker build -t anchor-dev .
+   ```
+
+2. **Run an interactive Docker session**:
+   ```bash
+   ./docker-run.sh
+   # Or manually:
+   docker run -it --rm -v $(pwd):/workspace anchor-dev bash
+   ```
+
+3. **Inside Docker, build and test**:
+   ```bash
    cd /workspace
    anchor build
+   anchor test  # This will deploy to devnet and run tests
    ```
 
-3. **Install newer GCC** (if available):
-   ```bash
-   # Try installing from EPEL or other sources
-   sudo dnf install gcc-toolset-13  # or newer version
-   scl enable gcc-toolset-13 -- bash
-   ```
-
-4. **Use GitHub Codespaces or similar** cloud development environment
+See `DOCKER_COMMANDS.md` and `ANCHOR_COMMANDS.md` for more details.
 
 ## Commands
 
@@ -84,11 +115,27 @@ anchor idl parse -f programs/my-first-anchor-program/src/lib.rs -o target/idl/my
 - Anchor Documentation: https://www.anchor-lang.com/
 - Solana Cookbook: https://solanacookbook.com/
 
-## Next Steps
+## Development Workflow
 
-1. Fix the build environment (see solutions above)
-2. Build the program: `anchor build`
-3. Write tests in `tests/my-first-anchor-program.ts`
-4. Deploy to devnet: `anchor deploy`
-5. Continue with Blueshift course lessons
-# Updated: Tue Jan 13 08:28:53 AM EST 2026
+1. **Make code changes** in `programs/my-first-anchor-program/src/`
+2. **Open Docker session**: `./docker-run.sh`
+3. **Build**: `anchor build`
+4. **Test**: `anchor test` (automatically deploys to devnet and runs tests)
+5. **Deploy manually** (if needed): `anchor deploy`
+
+## File Organization
+
+- **`lib.rs`**: Program entry point, declares all modules, defines `#[program]` with instruction handlers
+- **`state.rs`**: Account structs (e.g., `Vault`)
+- **`errors.rs`**: Custom error codes (e.g., `VaultError`)
+- **`contexts.rs`**: Account validation structs with `#[derive(Accounts)]` (e.g., `InitializeVault`, `VaultAction`)
+- **`instructions/`**: Individual instruction handler functions
+  - Each instruction has its own file for better organization
+  - Handlers are called from `lib.rs` via the `#[program]` macro
+
+## Learning Resources
+
+- Blueshift Course: `anchor-for-dummies` → `anchor-101`
+- Anchor Documentation: https://www.anchor-lang.com/
+- Solana Cookbook: https://solanacookbook.com/
+- LazyAccount Docs: Anchor 0.32+ feature for efficient account reading

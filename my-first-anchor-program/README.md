@@ -91,29 +91,23 @@ This project uses **Docker** to provide a consistent build environment that avoi
 
 See `DOCKER_COMMANDS.md` and `ANCHOR_COMMANDS.md` for more details.
 
-## Commands
+## Key Features
 
-Once build is working:
+### Modular Design
+- **Separation of concerns**: State, errors, contexts, and instructions are in separate files
+- **Maintainability**: Easy to add new instructions or modify existing ones
+- **Reusability**: Context structs can be shared across instructions
 
-```bash
-# Build the program
-anchor build
+### LazyAccount Usage
+The `read_vault` instruction demonstrates the `LazyAccount` feature:
+- Uses only 24 bytes of stack memory (vs full account deserialization)
+- Allows selective field loading (e.g., `load_owner()`)
+- Perfect for read-only operations that don't need full account data
 
-# Run tests
-anchor test
-
-# Deploy to devnet
-anchor deploy
-
-# Generate IDL
-anchor idl parse -f programs/my-first-anchor-program/src/lib.rs -o target/idl/my_first_anchor_program.json
-```
-
-## Learning Resources
-
-- Blueshift Course: `anchor-for-dummies` → `anchor-101`
-- Anchor Documentation: https://www.anchor-lang.com/
-- Solana Cookbook: https://solanacookbook.com/
+### Account Management
+- **PDA-based vaults**: Each user gets a unique vault PDA derived from their public key
+- **Rent-exempt handling**: Withdraw instruction ensures vault never goes below rent-exempt minimum
+- **Manual lamport transfers**: Uses `try_borrow_mut_lamports()` for accounts with data (can't use SystemProgram::transfer)
 
 ## Development Workflow
 
@@ -138,4 +132,4 @@ anchor idl parse -f programs/my-first-anchor-program/src/lib.rs -o target/idl/my
 - Blueshift Course: `anchor-for-dummies` → `anchor-101`
 - Anchor Documentation: https://www.anchor-lang.com/
 - Solana Cookbook: https://solanacookbook.com/
-- LazyAccount Docs: Anchor 0.32+ feature for efficient account reading
+- LazyAccount: Anchor 0.32+ feature for efficient account reading (used in `read_vault` instruction)

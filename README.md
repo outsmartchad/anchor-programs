@@ -102,23 +102,47 @@ Planning to build:
 - Node.js
 - Docker (optional)
 
-### Quick Start
+### Quick Start (Docker Workflow)
 
-```bash
-# Clone and navigate to a project
-cd my-first-anchor-program
-# or
-cd token-vault-practice
+All projects are set up with Docker for a consistent environment.
 
-# Build
-anchor build
+1. **Build the Docker Image** (Run once from any project directory)
+   ```bash
+   # Navigate to any project folder (they all have the same Dockerfile)
+   cd token-vault-practice  # or my-first-anchor-program
+   docker build -t anchor-builder:latest -f Dockerfile .
+   ```
 
-# Test
-anchor test
+2. **Start the Container**
+   ```bash
+   # Navigate to your chosen project (e.g., token22-vault-practice)
+   cd token22-vault-practice
+   
+   # Run the container
+   ./docker-run.sh
+   ```
 
-# Deploy to devnet
-anchor deploy --provider.cluster devnet
-```
+3. **Inside the Container**
+   ```bash
+   # 1. Install dependencies
+   npm install
+
+   # 2. Build the program
+   anchor build
+
+   # 3. Deploy & Test (Default)
+   # Deploys to configured cluster (devnet) and runs tests
+   anchor test
+
+   # 4. Test Only (Faster)
+   # Skips deployment (use if program is already deployed)
+   anchor test --skip-deploy --skip-local-validator
+
+   # 5. Upgrade Program (if code changed)
+   # Upgrades the on-chain program without changing the Program ID
+   # Replace <PROGRAM_ID> with the address from Anchor.toml
+   anchor upgrade target/deploy/program_name.so --program-id <PROGRAM_ID> --provider.cluster devnet
+   ```
 
 Each project has its own README with specific setup instructions.
 

@@ -1,5 +1,5 @@
 use anchor_lang::prelude::*;
-use crate::state::{Vault, LazyVault}; // Import LazyVault trait for LazyAccount methods
+use crate::state::Vault;
 
 // All account structs in one place for easier access by #[program] macro
 #[derive(Accounts)]

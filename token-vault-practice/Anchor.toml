@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-my_first_anchor_program = "GKS2qMBk7LkWqLn4YNGHmS65Jo6pWyUhqbemFKj4NiHT"
+token_vault_practice = "Gt2U5hxqJFErtgGXCkttGA1Wxrpe37YTsSQeeY467Dzu"
 
 [registry]
 url = "https://api.apr.dev"

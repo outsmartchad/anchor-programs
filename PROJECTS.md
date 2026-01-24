@@ -36,6 +36,5 @@ Token22 vault with PDA management:
 
 Planning to build:
 - **Escrow program** - Multi-party token escrow
-- **Liquidity pool integration** - CPI calls to Meteora/Raydium
-- **Privacy features** - Token mixing, confidential transfers
-- **Full DeFi protocol** - Combining everything above
+- **Liquidity pool integration** - CPI calls to Meteora DLMM/DAMM v2
+- **Privacy features** - Mixer pool, zk-proof

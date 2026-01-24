@@ -1,6 +1,6 @@
 # Anchor & Solana Learning
 
-Learning Solana/Anchor to build a privacy-focused DeFi project. This repo tracks my progress and practice projects.
+Learning Anchor and basics of solana program to build a privacy-focused DeFi project. This repo tracks my progress and practice projects.
 
 ## Goal
 

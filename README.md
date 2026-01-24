@@ -25,7 +25,6 @@ Basic Anchor program to get familiar with the framework:
 - Account initialization
 - Simple CPI to System Program
 
-**Status**: ✅ Done
 
 ### 2. [Token Vault Practice](./token-vault-practice/)
 
@@ -35,7 +34,6 @@ SPL Token vault with PDA management:
 - Associated token accounts
 - Token Program integration
 
-**Status**: ✅ Done
 
 ### 3. [Token-2022 Vault Practice](./token22-vault-practice/)
 
@@ -45,7 +43,6 @@ Token22 vault with PDA management:
 - InterfaceAccount for generic token support
 - Automatic PDA token account creation
 
-**Status**: ✅ Done
 
 ### 4. Next Steps
 

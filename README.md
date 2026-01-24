@@ -40,7 +40,7 @@ All projects are set up with Docker for a consistent environment.
 1. **Build the Docker Image** (Run once from any project directory)
    ```bash
    # Navigate to any project folder (they all have the same Dockerfile)
-   cd token22-vault-practic 
+   cd token22-vault-practice
    docker build -t anchor-builder:latest -f Dockerfile .
    ```
 
@@ -84,7 +84,7 @@ Each project has its own README with specific setup instructions.
 - [Solana Cookbook](https://solanacookbook.com/) - Common patterns and examples
 - [SPL Token Docs](https://spl.solana.com/token) - Token program reference
 - [Meteora Docs](https://docs.meteora.ag/) - Meteora DEX integration
-- [Raydium Docs](https://docs.raydium.io/) - Raydium AMM docs
+- [Anchor Escrow Reference](https://github.com/ironaddicteddog/anchor-escrow) - Escrow program implemented in Anchor
 
 ## Notes
 

@@ -84,10 +84,11 @@
 ### 5. **Token-2022 Extensions** ⭐ HIGH PRIORITY
 **Why**: Token-2022 offers advanced features beyond standard SPL tokens
 **Learn**:
-- Token-2022 vs. Token Program
+- ✅ Token-2022 vs. SPL Token Program
+- ✅ Creating Token-2022 mints
+- ✅ CPI to Token-2022 program
 - Transfer hooks
 - Metadata extensions
-- Creating Token-2022 mints
 - Using extensions in your program
 
 **Resources**:
@@ -95,7 +96,7 @@
 - Token-2022 extension specs
 - Practice: Create a token with extensions
 
-**Practice Project**: Build deposit with Token-2022 tokens
+**Practice Project**: Build deposit with Token-2022 tokens (Completed in `token22-vault-practice`)
 
 ---
 

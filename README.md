@@ -37,7 +37,17 @@ Token vault with PDA management:
 
 **Status**: ✅ Done
 
-### 3. Next Steps
+### 3. [Token-2022 Vault Practice](./token22-vault-practice/)
+
+Token-2022 integration (upgraded SPL Token program):
+- Token-2022 mints and accounts
+- CPI calls to Token-2022 program
+- InterfaceAccount for generic token support
+- Automatic PDA token account creation
+
+**Status**: ✅ Done
+
+### 4. Next Steps
 
 Planning to build:
 - **Escrow program** - Multi-party token escrow
@@ -135,6 +145,7 @@ Check the `notes/` directory for my learning notes and summaries. The `LEARNING_
 - ✅ SOL transfers and PDAs
 - ✅ SPL token transfers
 - ✅ PDA token account management
+- ✅ Token-2022 integration
 
 **In Progress:**
 - 🔄 Escrow patterns

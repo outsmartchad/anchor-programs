@@ -35,6 +35,6 @@ Token22 vault with PDA management:
 ## Next Steps
 
 Planning to build:
-- **Escrow program** - Multi-party token escrow
+- **Escrow program** - Onchain Token escrow
 - **Liquidity pool integration** - CPI calls to Meteora DLMM/DAMM v2
 - **Privacy features** - Mixer pool, zk-proof

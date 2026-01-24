@@ -1,4 +1,4 @@
-# Anchor & Solana Learning
+# Anchor & Solana Program Development Learning
 
 Learning Anchor and basics of solana program to build a privacy-focused DeFi project. This repo tracks my progress and practice projects.
 
@@ -29,7 +29,7 @@ Basic Anchor program to get familiar with the framework:
 
 ### 2. [Token Vault Practice](./token-vault-practice/)
 
-Token vault with PDA management:
+SPL Token vault with PDA management:
 - SPL token transfers via CPI
 - PDA token account creation
 - Associated token accounts
@@ -39,7 +39,7 @@ Token vault with PDA management:
 
 ### 3. [Token-2022 Vault Practice](./token22-vault-practice/)
 
-Token-2022 integration (upgraded SPL Token program):
+Token22 vault with PDA management:
 - Token-2022 mints and accounts
 - CPI calls to Token-2022 program
 - InterfaceAccount for generic token support

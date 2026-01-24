@@ -40,7 +40,7 @@ All projects are set up with Docker for a consistent environment.
 1. **Build the Docker Image** (Run once from any project directory)
    ```bash
    # Navigate to any project folder (they all have the same Dockerfile)
-   cd token-vault-practice  # or my-first-anchor-program
+   cd token22-vault-practic 
    docker build -t anchor-builder:latest -f Dockerfile .
    ```
 

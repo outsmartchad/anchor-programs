@@ -17,80 +17,11 @@ Build a privacy-focused DeFi project. To get there, I need to master:
 
 ## Projects
 
-### 1. [My First Anchor Program](./my-first-anchor-program/)
-
-Basic Anchor program to get familiar with the framework:
-- SOL transfers (deposit/withdraw)
-- PDA basics
-- Account initialization
-- Simple CPI to System Program
-
-
-### 2. [Token Vault Practice](./token-vault-practice/)
-
-SPL Token vault with PDA management:
-- SPL token transfers via CPI
-- PDA token account creation
-- Associated token accounts
-- Token Program integration
-
-
-### 3. [Token-2022 Vault Practice](./token22-vault-practice/)
-
-Token22 vault with PDA management:
-- Token-2022 mints and accounts
-- CPI calls to Token-2022 program
-- InterfaceAccount for generic token support
-- Automatic PDA token account creation
-
-
-### 4. Next Steps
-
-Planning to build:
-- **Escrow program** - Multi-party token escrow
-- **Liquidity pool integration** - CPI calls to Meteora/Raydium
-- **Privacy features** - Token mixing, confidential transfers
-- **Full DeFi protocol** - Combining everything above
+Check out [PROJECTS.md](./PROJECTS.md) for a list of projects I've built and their status.
 
 ## What I'm Learning
 
-### Core Concepts
-
-**Anchor Framework**
-- Program structure (lib.rs, contexts, instructions)
-- Account validation and constraints
-- Error handling
-- Testing with TypeScript
-
-**CPI (Cross-Program Invocation)**
-- Calling Token Program for transfers
-- Calling other Anchor programs
-- PDA signing in CPI calls
-- Passing accounts between programs
-
-**SPL Token Program**
-- Token accounts vs regular accounts
-- Mint authority and token authority
-- Transferring tokens (not SOL)
-- Token-2022 extensions
-
-**PDAs**
-- Deriving program addresses
-- PDA signing for CPI
-- PDA-owned accounts
-- Seeds and bumps
-
-**Vault Patterns**
-- Deposit/withdraw flows
-- State management
-- Access control
-- Multi-token support
-
-**DeFi Integration**
-- Meteora DEX integration
-- Raydium AMM calls
-- Liquidity pool interactions
-- Swap operations via CPI
+Check out [LEARNING.md](./LEARNING.md) for a detailed list of core concepts and topics I'm mastering.
 
 ## Setup
 

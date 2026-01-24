@@ -64,28 +64,3 @@ anchor test
 # Deploy to devnet
 anchor deploy --provider.cluster devnet
 ```
-
-## Why Token-2022 for Privacy DeFi?
-
-Token-2022 supports extensions that are useful for privacy:
-- **Confidential Transfers**: Hide token amounts
-- **Transfer Fees**: Built-in fee mechanism
-- **Interest-Bearing**: Tokens that accrue interest
-- **Metadata**: Rich token metadata
-
-This makes it ideal for privacy-focused DeFi applications.
-
-## Learning Goals
-
-- ✅ Understanding Token-2022 vs regular Token
-- ✅ Working with Token-2022 program ID
-- ✅ Token-2022 account types
-- ✅ CPI to Token-2022 program
-- ✅ Token-2022 extensions (future)
-
-## Next Steps
-
-- Add support for Token-2022 extensions
-- Implement confidential transfers
-- Add transfer fee handling
-- Build privacy features on top

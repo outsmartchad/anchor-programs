@@ -155,37 +155,6 @@ anchor deploy --provider.cluster mainnet
 
 **Note**: Update the program ID in `Anchor.toml` and `lib.rs` after deployment.
 
-## 💡 Real-World Use Cases
-
-This pattern is used in many DeFi applications:
-
-- **Staking Platforms**: Users stake tokens to earn rewards
-- **Liquidity Pools**: Pool tokens from multiple users
-- **Escrow Services**: Hold tokens until conditions are met
-- **Time-Locked Savings**: Lock tokens for a specific period
-- **Treasury Management**: Program-controlled token storage
-
-## 🔐 Security Considerations
-
-- The vault PDA has no private key (can't be stolen)
-- Only the program code can move tokens (transparent and auditable)
-- All operations are on-chain and verifiable
-- Users can review the code before depositing
-
-## 📚 Learning Resources
-
-- [Anchor Documentation](https://www.anchor-lang.com/)
-- [Solana Cookbook](https://solanacookbook.com/)
-- [SPL Token Program](https://spl.solana.com/token)
-
-## 🤝 Contributing
-
-This is a learning project. Feel free to:
-- Add withdrawal functionality
-- Implement multi-token support
-- Add access control/authorization
-- Create a frontend interface
-
 ## 📄 License
 
 This project is for educational purposes.

@@ -1,0 +1,20 @@
+[package]
+name = "escrow-program"
+version = "0.1.0"
+description = "Escrow program built with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "escrow_program"
+
+[features]
+cpi = ["no-entrypoint"]
+default = []
+no-entrypoint = []
+no-idl = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "0.32.0", features = ["init-if-needed"] }
+anchor-spl = "0.32.0"

@@ -32,6 +32,14 @@ I'm documenting the core concepts I'm learning to build a privacy-focused DeFi p
 - Access control
 - Multi-token support
 
+## Escrow Patterns
+- Trustless token swaps
+- Two-party exchange flows
+- Escrow account lifecycle (initialize → exchange/cancel)
+- PDA-based escrow management
+- Token account ownership transfer
+- Rent reclamation on account closure
+
 ## DeFi Integration
 - Meteora DEX integration
 - Raydium AMM calls

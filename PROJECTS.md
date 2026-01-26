@@ -32,9 +32,21 @@ Token22 vault with PDA management:
 
 **Status**: ✅ Done
 
+## 4. [Escrow Program](./escrow-program/)
+
+Trustless token swap escrow program:
+- Initialize escrow with Token A deposit
+- Exchange: Taker sends Token B, receives Token A
+- Cancel: Initializer can reclaim tokens
+- PDA-based escrow account management
+- Full test coverage with integration tests
+
+**Program ID (Devnet)**: `Gxqbvq5HqLVN3Rom9wBTC5jCtrwA92KiqoEKWxt3k9hL`
+
+**Status**: ✅ Done
+
 ## Next Steps
 
 Planning to build:
-- **Escrow program** - Onchain Token escrow
 - **Liquidity pool integration** - CPI calls to Meteora DLMM/DAMM v2
 - **Privacy features** - Mixer pool, zk-proof

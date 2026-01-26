@@ -98,9 +98,9 @@ Check the `notes/` directory for my learning notes and summaries. The `LEARNING_
 - ✅ SPL token transfers
 - ✅ PDA token account management
 - ✅ Token-2022 integration
+- ✅ Escrow program (token swaps between two parties)
 
 **In Progress:**
-- 🔄 Escrow patterns
 - 🔄 DeFi protocol integration
 
 **Next:**

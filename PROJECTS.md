@@ -45,8 +45,21 @@ Trustless token swap escrow program:
 
 **Status**: ✅ Done
 
+## 5. [Meteora DAMM v2 CPI](./meteora-damm-v2-cpi/)
+
+Complete CPI wrapper for Meteora's DAMM v2 protocol:
+- Initialize pools with automatic SOL wrapping
+- Add/remove liquidity with automatic SOL wrapping
+- Execute swaps
+- Create positions
+- Uses Meteora SDK for accurate liquidity calculations
+- Full integration with Token-2022 support
+
+**Program ID (Devnet)**: `GLpCLLYPGamw2F3bmEsNGGaNw2yYzH5NZhPfgFQ1qkgX`
+
+**Status**: ✅ Done
+
 ## Next Steps
 
 Planning to build:
-- **Liquidity pool integration** - CPI calls to Meteora DLMM/DAMM v2
 - **Privacy features** - Mixer pool, zk-proof

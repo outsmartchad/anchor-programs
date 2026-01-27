@@ -19,6 +19,12 @@ Build a privacy-focused DeFi project. To get there, I need to master:
 
 Check out [PROJECTS.md](./PROJECTS.md) for a list of projects I've built and their status.
 
+### Recent Projects
+
+- **[Meteora DAMM v2 CPI](./meteora-damm-v2-cpi/)** - Complete CPI wrapper for Meteora's DAMM v2 protocol with automatic SOL wrapping
+- **[Escrow Program](./escrow-program/)** - Trustless token swap escrow
+- **[Token-2022 Vault](./token22-vault-practice/)** - Token-2022 vault with PDA management
+
 ## What I'm Learning
 
 Check out [LEARNING.md](./LEARNING.md) for a detailed list of core concepts and topics I'm mastering.
@@ -99,9 +105,10 @@ Check the `notes/` directory for my learning notes and summaries. The `LEARNING_
 - ✅ PDA token account management
 - ✅ Token-2022 integration
 - ✅ Escrow program (token swaps between two parties)
+- ✅ Meteora DAMM v2 CPI integration (pool initialization, liquidity management, swaps)
 
 **In Progress:**
-- 🔄 DeFi protocol integration
+- 🔄 Advanced DeFi integrations
 
 **Next:**
 - ⏳ Privacy-focused features

@@ -14,6 +14,7 @@ This directory contains learning materials for Anchor and Solana development.
 - **token-vault-practice/** - SPL Token vault with PDA management
 - **token22-vault-practice/** - Token-2022 vault with PDA management
 - **escrow-program/** - Trustless token swap escrow program
+- **meteora-damm-v2-cpi/** - CPI integration with Meteora DAMM v2 (add/remove liquidity, swap)
 
 ## 🎯 Current Learning Focus
 
@@ -62,11 +63,12 @@ For hackathon/production work, see: `/root/anchor-building/`
 2. ✅ token-vault-practice (SPL Token basics)
 3. ✅ token22-vault-practice (Token-2022 Integration)
 4. ✅ escrow-program (Trustless token swaps, Escrow patterns)
-5. Token Swap (CPI basics)
-6. Multi-PDA System (Advanced PDAs)
-7. DLMM Liquidity Provider
-8. DAMM v2 Liquidity Provider
-9. Advanced Vault (Full integration)
+5. 🔄 meteora-damm-v2-cpi (CPI to DAMM v2: swap, add/remove liquidity)
+6. Token Swap (CPI basics)
+7. Multi-PDA System (Advanced PDAs)
+8. DLMM Liquidity Provider
+9. DAMM v2 Liquidity Provider
+10. Advanced Vault (Full integration)
 
 ## 💡 Usage
 

@@ -36,8 +36,7 @@ This program acts as a wrapper around Meteora's DAMM v2 protocol, providing a cl
 | `create_position` | Create a new position in an existing pool | ✅ |
 | `claim_position_fee` | Claim accumulated trading fees for a position | ✅ |
 | `close_position` | Close a position and reclaim rent (after liquidity is removed) | ✅ |
-| `initialize_customizable_pool` | Initialize a customizable pool with explicit fee config | ✅ (CPI tested) |
-| `initialize_pool_with_sol` | Legacy helper – use `initialize_pool` with `sol_amount` instead | ✅ |
+| `initialize_customizable_pool` | Initialize a customizable pool with explicit fee config | ✅ |
 
 ## Architecture
 

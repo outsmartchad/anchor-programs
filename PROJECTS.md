@@ -49,9 +49,9 @@ Trustless token swap escrow program:
 
 Complete CPI wrapper for Meteora's DAMM v2 protocol:
 - Initialize pools with automatic SOL wrapping
-- Add/remove liquidity with automatic SOL wrapping
-- Execute swaps
-- Create positions
+- Add/remove liquidity with automatic SOL wrapping (including remove-all)
+- Execute swaps via `swap` and `swap2`
+- Create and fully close positions (claim fees + exit workflows)
 - Uses Meteora SDK for accurate liquidity calculations
 - Full integration with Token-2022 support
 

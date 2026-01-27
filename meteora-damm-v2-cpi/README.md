@@ -29,10 +29,15 @@ This program acts as a wrapper around Meteora's DAMM v2 protocol, providing a cl
 |-------------|-------------|--------|
 | `initialize_pool` | Create a new DAMM v2 pool with initial liquidity | ✅ |
 | `add_liquidity` | Add liquidity to an existing position | ✅ |
-| `remove_liquidity` | Remove liquidity from a position | ✅ |
-| `swap` | Execute a swap on a DAMM v2 pool | ✅ |
+| `remove_liquidity` | Remove liquidity from a position (percentage-based in tests) | ✅ |
+| `remove_all_liquidity` | Remove all remaining liquidity from a position | ✅ |
+| `swap` | Execute a swap on a DAMM v2 pool (legacy interface) | ✅ |
+| `swap2` | Advanced swap with modes (ExactIn, etc.) | ✅ |
 | `create_position` | Create a new position in an existing pool | ✅ |
-| `initialize_pool_with_sol` | Initialize pool with automatic SOL wrapping (alternative) | ✅ |
+| `claim_position_fee` | Claim accumulated trading fees for a position | ✅ |
+| `close_position` | Close a position and reclaim rent (after liquidity is removed) | ✅ |
+| `initialize_customizable_pool` | Initialize a customizable pool with explicit fee config | ✅ (CPI tested) |
+| `initialize_pool_with_sol` | Legacy helper – use `initialize_pool` with `sol_amount` instead | ✅ |
 
 ## Architecture
 
@@ -172,6 +177,23 @@ await program.methods
   .rpc();
 ```
 
+### Swap2 (advanced swap)
+
+```typescript
+// Swap 1,000 tokens using swap2 (ExactIn mode)
+const swapAmountHuman = 1_000;
+const tokenADecimals = 9;
+
+const amount0 = new BN(swapAmountHuman * 10 ** tokenADecimals); // amount_in
+const amount1 = new BN(0);                                      // minimum_amount_out
+const swapMode = 0; // ExactIn
+
+await program.methods
+  .swap2(amount0, amount1, swapMode)
+  .accounts({...})
+  .rpc();
+```
+
 ### Swap
 
 ```typescript
@@ -231,11 +253,13 @@ meteora-damm-v2-cpi/
 The test suite includes:
 - ✅ Pool initialization with automatic SOL wrapping
 - ✅ Adding liquidity with automatic SOL wrapping
-- ✅ Removing liquidity (percentage-based)
-- ✅ Swapping tokens
-- ✅ Proper error handling
+- ✅ Removing liquidity (percentage-based) and full removal (`remove_all_liquidity`)
+- ✅ Swapping via both `swap` and `swap2`
+- ✅ Claiming fees and closing positions
+- ✅ Customizable pool initialization with fee scheduler parameters
+- ✅ Proper error handling (e.g. `PriceRangeViolation`, `AmountIsZero`, `InsufficientLiquidity`)
 
-Tests use the Meteora SDK to calculate liquidity from desired token amounts, ensuring accurate pool initialization and liquidity management.
+Tests use the Meteora SDK to calculate liquidity from desired token amounts, ensuring accurate pool initialization, liquidity management, and swap behaviour.
 
 ## Security Considerations
 
